@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../components/card.dart';
+
+/// Environments and Constants
+import '../environments/constants.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,23 +19,55 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         children: <Widget>[
-          Row(
-            children: <Widget>[
-              ReusableCard(),
-              ReusableCard(),
-            ],
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: ReusableCard(
+                    backgroundColor: Constant.activeCardColor,
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    backgroundColor: Constant.activeCardColor,
+                  ),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: <Widget>[
-              ReusableCard(),
-            ],
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: ReusableCard(
+                    backgroundColor: Constant.activeCardColor,
+                  ),
+                ),
+              ],
+            ),
           ),
-          Row(
-            children: <Widget>[
-              ReusableCard(),
-              ReusableCard(),
-            ],
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: ReusableCard(
+                    backgroundColor: Constant.activeCardColor,
+                  ),
+                ),
+                Expanded(
+                  child: ReusableCard(
+                    backgroundColor: Constant.activeCardColor,
+                  ),
+                ),
+              ],
+            ),
           ),
+          Container(
+            color: Color(0XFFEB1555),
+            height: 80.0,
+            width: double.infinity,
+            margin: EdgeInsets.only(top: 10),
+          )
         ],
       ),
     );
