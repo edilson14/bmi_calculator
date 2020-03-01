@@ -8,6 +8,7 @@ import '../components/icon_content.dart';
 
 /// Environments and Constants
 import '../environments/constants.dart';
+import '../utils/Utils.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,31 +16,11 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  Color femaleCardColour = Constants.inactiveCardColor;
-  Color maleCardColour = Constants.inactiveCardColor;
-
-  void changeCardColor(ButtonsGender selectedGender) {
-    if (selectedGender == ButtonsGender.maleButton) {
-      if (maleCardColour == Constants.inactiveCardColor) {
-        maleCardColour = Constants.activeCardColor;
-      } else {
-        maleCardColour = Constants.inactiveCardColor;
-      }
-    } else {
-      if (femaleCardColour == Constants.inactiveCardColor) {
-        femaleCardColour = Constants.activeCardColor;
-        maleCardColour = Constants.inactiveCardColor;
-      } else {
-        femaleCardColour = Constants.inactiveCardColor;
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: Text('INDICE MASSA CORPORAL'),
         centerTitle: true,
       ),
       body: Column(
@@ -49,28 +30,28 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: maleCardColour,
+                    backgroundColor: Constants.maleButtonColor,
                     cardChild: IconContent(
                       contentText: 'MALE',
                       cardIcon: FontAwesomeIcons.mars,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        changeCardColor(ButtonsGender.maleButton);
+                        Functions.changeCardColor(ButtonsGender.maleButton);
                       });
                     },
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: femaleCardColour,
+                    backgroundColor: Constants.femaleButtonColor,
                     cardChild: IconContent(
                       contentText: 'FEMALE',
                       cardIcon: FontAwesomeIcons.venus,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        changeCardColor(ButtonsGender.femaleButton);
+                        Functions.changeCardColor(ButtonsGender.femaleButton);
                       });
                     },
                   ),
