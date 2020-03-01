@@ -8,7 +8,6 @@ import '../components/icon_content.dart';
 
 /// Environments and Constants
 import '../environments/constants.dart';
-import '../utils/Utils.dart';
 
 class InputPage extends StatefulWidget {
   @override
@@ -30,28 +29,34 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: Constants.maleButtonColor,
+                    backgroundColor:
+                        Constants.selectedGender == ButtonsGender.maleButton
+                            ? Constants.activeCardColor
+                            : Constants.inactiveCardColor,
                     cardChild: IconContent(
                       contentText: 'MALE',
                       cardIcon: FontAwesomeIcons.mars,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        Functions.changeCardColor(ButtonsGender.maleButton);
+                        Constants.selectedGender = ButtonsGender.maleButton;
                       });
                     },
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: Constants.femaleButtonColor,
+                    backgroundColor:
+                        Constants.selectedGender == ButtonsGender.femaleButton
+                            ? Constants.activeCardColor
+                            : Constants.inactiveCardColor,
                     cardChild: IconContent(
                       contentText: 'FEMALE',
                       cardIcon: FontAwesomeIcons.venus,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        Functions.changeCardColor(ButtonsGender.femaleButton);
+                        Constants.selectedGender = ButtonsGender.femaleButton;
                       });
                     },
                   ),
