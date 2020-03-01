@@ -18,11 +18,10 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColour = Constants.inactiveCardColor;
   Color maleCardColour = Constants.inactiveCardColor;
 
-  void changeCardColor(int cardPressed) {
-    if (cardPressed == 1) {
+  void changeCardColor(ButtonsGender selectedGender) {
+    if (selectedGender == ButtonsGender.maleButton) {
       if (maleCardColour == Constants.inactiveCardColor) {
         maleCardColour = Constants.activeCardColor;
-        femaleCardColour = Constants.inactiveCardColor;
       } else {
         maleCardColour = Constants.inactiveCardColor;
       }
@@ -57,7 +56,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        changeCardColor(1);
+                        changeCardColor(ButtonsGender.maleButton);
                       });
                     },
                   ),
@@ -71,7 +70,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        changeCardColor(2);
+                        changeCardColor(ButtonsGender.femaleButton);
                       });
                     },
                   ),
