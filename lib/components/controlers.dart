@@ -1,43 +1,64 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Controler extends StatelessWidget {
+//Components
+import 'roundIconButton.dart';
+// Environments
+import '../environments/constants.dart';
+
+class Controller extends StatefulWidget {
   final String label;
-  Controler({this.label});
+  int value;
+
+  Controller({
+    this.label,
+    this.value,
+  });
+  @override
+  _ControllerState createState() => _ControllerState();
+}
+
+class _ControllerState extends State<Controller> {
+  void _increment() {
+    setState(() {
+      widget.value++;
+    });
+  }
+
+  void _decrement() {
+    setState(() {
+      widget.value--;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          label,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20.0,
-          ),
+          widget.label,
+          style: kLabelStyle,
         ),
         Text(
-          label,
+          widget.value.toString(),
           style: TextStyle(
             fontSize: 40.0,
           ),
         ),
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OutlineButton(
-              onPressed: null,
-              child: Icon(
-                Icons.add,
-              ),
+            RoundIconButton(
+              onPressedCallBack: () => _decrement(),
+              icon: FontAwesomeIcons.minus,
             ),
             SizedBox(
-              width: 10,
+              width: 20,
             ),
-            OutlineButton(
-              color: Colors.white,
-              onPressed: null,
-              child: Icon(
-                FontAwesomeIcons.minus,
-              ),
+            RoundIconButton(
+              onPressedCallBack: () => _increment(),
+              icon: FontAwesomeIcons.plus,
             ),
           ],
         )

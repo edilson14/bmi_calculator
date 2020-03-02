@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/controlers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,9 +16,11 @@ class InputPage extends StatefulWidget {
   _InputPageState createState() => _InputPageState();
 }
 
-int startHeight = 180;
-
 class _InputPageState extends State<InputPage> {
+  int startHeight = 180;
+  int startWeight = 60;
+  int startAge = 18;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +39,7 @@ class _InputPageState extends State<InputPage> {
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     cardChild: IconContent(
-                      contentText: 'MALE',
+                      contentText: 'Masculino',
                       cardIcon: FontAwesomeIcons.mars,
                     ),
                     onTapCallBack: () {
@@ -53,7 +56,7 @@ class _InputPageState extends State<InputPage> {
                             ? kActiveCardColor
                             : kInactiveCardColor,
                     cardChild: IconContent(
-                      contentText: 'FEMALE',
+                      contentText: 'Feminino',
                       cardIcon: FontAwesomeIcons.venus,
                     ),
                     onTapCallBack: () {
@@ -84,11 +87,19 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     backgroundColor: kActiveCardColor,
+                    cardChild: Controller(
+                      label: 'Peso',
+                      value: startWeight,
+                    ),
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
                     backgroundColor: kActiveCardColor,
+                    cardChild: Controller(
+                      label: 'Idade',
+                      value: startAge,
+                    ),
                   ),
                 ),
               ],
@@ -103,7 +114,7 @@ class _InputPageState extends State<InputPage> {
               child: FlatButton(
                 onPressed: null,
                 child: Text(
-                  'Calculate',
+                  'Calcular',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,

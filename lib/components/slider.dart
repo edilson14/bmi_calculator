@@ -17,7 +17,7 @@ class _MySliderState extends State<MySlider> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Text(
-          'HEIGHT',
+          'Altura',
           style: kLabelStyle,
         ),
         Row(
