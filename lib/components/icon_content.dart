@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../environments/constants.dart';
+
 class IconContent extends StatelessWidget {
   final IconData cardIcon;
   final String contentText;
@@ -19,10 +21,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           contentText,
-          style: TextStyle(
-            fontSize: 30.0,
-            color: Color(0XFF8D8E98),
-          ),
+          style: kLabelStyle,
         )
       ],
     );

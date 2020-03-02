@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 ///Components
 import '../components/card.dart';
 import '../components/icon_content.dart';
+import '../components/slider.dart';
 
 /// Environments and Constants
 import '../environments/constants.dart';
@@ -13,6 +14,8 @@ class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
+
+int startHeight = 180;
 
 class _InputPageState extends State<InputPage> {
   @override
@@ -29,17 +32,16 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor:
-                        Constants.selectedGender == ButtonsGender.maleButton
-                            ? Constants.activeCardColor
-                            : Constants.inactiveCardColor,
+                    backgroundColor: selectedGender == ButtonsGender.maleButton
+                        ? kActiveCardColor
+                        : kInactiveCardColor,
                     cardChild: IconContent(
                       contentText: 'MALE',
                       cardIcon: FontAwesomeIcons.mars,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        Constants.selectedGender = ButtonsGender.maleButton;
+                        selectedGender = ButtonsGender.maleButton;
                       });
                     },
                   ),
@@ -47,16 +49,16 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     backgroundColor:
-                        Constants.selectedGender == ButtonsGender.femaleButton
-                            ? Constants.activeCardColor
-                            : Constants.inactiveCardColor,
+                        selectedGender == ButtonsGender.femaleButton
+                            ? kActiveCardColor
+                            : kInactiveCardColor,
                     cardChild: IconContent(
                       contentText: 'FEMALE',
                       cardIcon: FontAwesomeIcons.venus,
                     ),
                     onTapCallBack: () {
                       setState(() {
-                        Constants.selectedGender = ButtonsGender.femaleButton;
+                        selectedGender = ButtonsGender.femaleButton;
                       });
                     },
                   ),
@@ -69,7 +71,8 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: Constants.activeCardColor,
+                    backgroundColor: kActiveCardColor,
+                    cardChild: MySlider(startHeight),
                   ),
                 ),
               ],
@@ -80,12 +83,12 @@ class _InputPageState extends State<InputPage> {
               children: <Widget>[
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: Constants.activeCardColor,
+                    backgroundColor: kActiveCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    backgroundColor: Constants.activeCardColor,
+                    backgroundColor: kActiveCardColor,
                   ),
                 ),
               ],
