@@ -1,12 +1,15 @@
-import 'package:bmi_calculator/components/controlers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+//PAGES
+import 'resultPage.dart';
 
 ///Components
 import '../components/card.dart';
 import '../components/icon_content.dart';
 import '../components/slider.dart';
+import '../components/controlers.dart';
+import '../components/bottomButton.dart';
 
 /// Environments and Constants
 import '../environments/constants.dart';
@@ -105,25 +108,15 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: Color(0XFFEB1555),
-            height: 80.0,
-            width: double.infinity,
-            margin: EdgeInsets.only(top: 10),
-            child: Center(
-              child: FlatButton(
-                onPressed: null,
-                child: Text(
-                  'Calcular',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    fontSize: 40.0,
-                  ),
-                ),
+          BottomButton(
+            label: 'Calcular',
+            onPressCallBack: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ResultPage(),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
