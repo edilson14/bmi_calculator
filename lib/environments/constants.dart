@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+//
+int startHeight = 180;
+int startWeight = 60;
+int startAge = 18;
+
 //Genders Buttons
 const Color kActiveCardColor = Color(0XFF1D1E33);
 const Color kInactiveCardColor = Color(0XFF111328);

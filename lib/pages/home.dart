@@ -23,10 +23,6 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
-  int startHeight = 180;
-  int startWeight = 60;
-  int startAge = 18;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +77,7 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: ReusableCard(
                     backgroundColor: kActiveCardColor,
-                    cardChild: MySlider(startHeight),
+                    cardChild: MySlider(),
                   ),
                 ),
               ],

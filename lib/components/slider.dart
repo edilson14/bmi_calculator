@@ -4,8 +4,7 @@ import 'package:flutter/material.dart';
 import '../environments/constants.dart';
 
 class MySlider extends StatefulWidget {
-  int height;
-  MySlider(this.height);
+  MySlider();
   @override
   _MySliderState createState() => _MySliderState();
 }
@@ -26,7 +25,7 @@ class _MySliderState extends State<MySlider> {
           textBaseline: TextBaseline.alphabetic,
           children: <Widget>[
             Text(
-              widget.height.toString(),
+              startHeight.toString(),
               style: kNumberStyle,
             ),
             Text(
@@ -45,10 +44,10 @@ class _MySliderState extends State<MySlider> {
             inactiveTrackColor: kInactiveSlideColor,
           ),
           child: Slider(
-            value: widget.height.toDouble(),
+            value: startHeight.toDouble(),
             onChanged: (double newValue) {
               setState(() {
-                widget.height = newValue.round();
+                startHeight = newValue.round();
               });
             },
             min: kMinSliderValue,
