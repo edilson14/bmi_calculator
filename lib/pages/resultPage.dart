@@ -9,6 +9,16 @@ import '../components/bottomButton.dart';
 import '../environments/constants.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmiResult;
+  final String bmiResultText;
+  final String interpretation;
+
+  ResultPage({
+    @required this.bmiResult,
+    @required this.bmiResultText,
+    @required this.interpretation,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +43,11 @@ class ResultPage extends StatelessWidget {
             flex: 5,
             child: ReusableCard(
               backgroundColor: kActiveCardColor,
-              cardChild: buildResultWidget(),
+              cardChild: buildResultWidget(
+                result: bmiResult,
+                resultInterpretation: interpretation,
+                resultText: bmiResultText,
+              ),
             ),
           ),
           BottomButton(

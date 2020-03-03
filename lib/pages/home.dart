@@ -4,6 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //PAGES
 import 'resultPage.dart';
 
+//UTILS
+import '../models/calculatorbrain.dart';
+
 ///Components
 import '../components/card.dart';
 import '../components/icon_content.dart';
@@ -110,12 +113,22 @@ class _InputPageState extends State<InputPage> {
           ),
           BottomButton(
             label: 'Calcular',
-            onPressCallBack: () => Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ResultPage(),
-              ),
-            ),
+            onPressCallBack: () {
+              CalculatorBrain calculator = new CalculatorBrain(
+                height: startHeight,
+                weight: startWeight,
+              );
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultPage(
+                    bmiResult: calculator.calculateBMI(),
+                    bmiResultText: calculator.getResult(),
+                    interpretation: calculator.getInterpetation(),
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),

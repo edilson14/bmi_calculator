@@ -3,20 +3,25 @@ import 'package:flutter/material.dart';
 //Environments
 import '../environments/constants.dart';
 
-Widget buildResultWidget() => Column(
+Widget buildResultWidget({
+  @required String result,
+  @required String resultText,
+  @required String resultInterpretation,
+}) =>
+    Column(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Text(
-          'Normal',
+          resultText.toUpperCase(),
           style: kResultTextStyle,
         ),
         Text(
-          '12.0',
+          result,
           style: kBIMTexStyle,
         ),
         Text(
-          'typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.',
+          resultInterpretation,
           style: kBodyTextStyle,
           textAlign: TextAlign.center,
         ),
