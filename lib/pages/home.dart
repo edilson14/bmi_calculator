@@ -92,7 +92,7 @@ class _InputPageState extends State<InputPage> {
                     cardChild: Controller(
                       onPlusPressed: () {
                         setState(() {
-                          startWeight--;
+                          startWeight++;
                         });
                       },
                       onMinusPressed: () {
