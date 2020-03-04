@@ -11,13 +11,9 @@ class CalculatorBrain {
   });
 
   String calculateBMI() {
-    print('altura $height');
-    print('peso $weight');
-
     ///dived [height] to convert cm to meters
     _bmi = weight / pow(height / 100, 2);
 
-    print('bmi $_bmi');
     return _bmi.toStringAsFixed(2);
   }
 
@@ -33,11 +29,11 @@ class CalculatorBrain {
 
   String getInterpetation() {
     if (_bmi >= 25) {
-      return 'You have a higher than normal body weight. Try to exercise more.';
+      return 'Você se encontra sobre a massa corporal Recomendada. Tente exercitar um pouco!';
     } else if (_bmi >= 18.5) {
-      return 'You have a normal body weight. Good job!';
+      return 'Indice de massa corporal normal. Bom Trabalho!';
     } else {
-      return 'You have a lower than normal body weight. You can eat a bit more.';
+      return 'Você se encontra abaixo da massa corporal recomendada. Coma um pouco mais e faça mais exercício!';
     }
   }
 }

@@ -90,6 +90,16 @@ class _InputPageState extends State<InputPage> {
                   child: ReusableCard(
                     backgroundColor: kActiveCardColor,
                     cardChild: Controller(
+                      onPlusPressed: () {
+                        setState(() {
+                          startWeight--;
+                        });
+                      },
+                      onMinusPressed: () {
+                        setState(() {
+                          startWeight--;
+                        });
+                      },
                       label: 'Peso',
                       value: startWeight,
                     ),
@@ -99,6 +109,16 @@ class _InputPageState extends State<InputPage> {
                   child: ReusableCard(
                     backgroundColor: kActiveCardColor,
                     cardChild: Controller(
+                      onMinusPressed: () {
+                        setState(() {
+                          startAge--;
+                        });
+                      },
+                      onPlusPressed: () {
+                        setState(() {
+                          startAge++;
+                        });
+                      },
                       label: 'Idade',
                       value: startAge,
                     ),
